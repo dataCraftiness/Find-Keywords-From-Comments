@@ -14,37 +14,6 @@ function onOpen() {
   .addToUi();
 };
 
-/***************************************************************************************************/
-function WhatRow(columnName){
-   /**
-   *Function that finds the last row containing data for a specific column.
-   *@param columnName {string}
-   *@return the number of the last row containing data.
-   *@customfunction
-   */
-  
-  var ss = SpreadsheetApp.getActive();
-  var s = ss.getActiveSheet();
-  var lc = ss.getLastColumn();
-  var lr = ss.getLastRow();
-  
-  for (var i = 1; i <= lc; i++){
-    
-    if (s.getRange(1, i).getValue() == columnName) {
-    
-      data = s.getRange(1,i,lr,1).getValues();
-      
-      for (var j = data.length - 1; j >= 0; j--) {
-        if (data[j][0] != null && data[j][0] != "") {
-          return(j + 1);  
-        }  
-      }
-    }
-  }
-  return undefined;
-};
-/***************************************************************************************************/
-
 function FindWords() {
    /**
    * Function that does not return anything nor take any parameter. From the list of comments and their NPS, it finds all the words
